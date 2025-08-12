@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yutong Ye | Computer Science Engineer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #4f46e5;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --light-gray: #e2e8f0;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--dark);
+            background-color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+        
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            padding: 180px 0 100px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+        
+        .hero-text {
+            flex: 1;
+            z-index: 2;
+        }
+        
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            z-index: 2;
+        }
+        
+        .hero-image .profile-img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero h1 span {
+            color: var(--primary);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            color: var(--gray);
+            max-width: 600px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: 2px solid var(--primary);
+            font-size: 1.1rem;
+        }
+        
+        .btn:hover {
+            background: transparent;
+            color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            margin-left: 15px;
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        /* Section Styling */
+        section {
+            padding: 100px 0 0px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .section-title p {
+            color: var(--gray);
+            font-size: 1.2rem;
+            margin-top: 5px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Education Section */
+        .education-item {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            /*margin-bottom: 20px; /* 从30px减少到20px */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            border-left: 4px solid var(--primary);
+        }
+        
+        .education-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .education-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .education-item .date {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .education-item ul {
+            margin-left: 20px;
+            margin-top: 15px;
+        }
+        
+        .education-item ul li {
+            margin-bottom: 8px;
+        }
+        
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            margin-bottom: 20px; /* 添加此行 */
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-content {
+            padding: 25px;
+        }
+        
+        .project-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .project-card .role {
+            display: inline-block;
+            background: var(--light-gray);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            color: var(--gray);
+        }
+        
+        .project-card ul {
+            margin-top: 15px;
+            margin-left: 20px;
+        }
+        
+        .project-card ul li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .project-card ul li:before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+        
+        /* Experience Section */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--light-gray);
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+            width: 50%;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            padding-right: 70px;
+            text-align: right;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            padding-left: 70px;
+        }
+        
+        .timeline-content {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+        
+        .timeline-content:after {
+            content: '';
+            position: absolute;
+            top: 30px;
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            border-radius: 50%;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content:after {
+            right: -75px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content:after {
+            left: -75px;
+        }
+        
+        .timeline-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+        
+        .timeline-content .date {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .timeline-content ul {
+            margin-top: 15px;
+            margin-left: 20px;
+        }
+        
+        .timeline-content ul li {
+            margin-bottom: 10px;
+        }
+        
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .skill-category {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px; /* 添加此行 */
+        }
+        
+        .skill-category h3 {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+            text-align: center;
+        }
+        
+        .skill-item {
+            margin-bottom: 20px;
+        }
+        
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+        
+        .skill-bar {
+            height: 10px;
+            background: var(--light-gray);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background: var(--primary);
+            border-radius: 5px;
+        }
+        
+        /* Interests Section */
+        .interests-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 25px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .interest-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px 15px; /* 从30px 20px改为20px 15px */
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+        
+        .interest-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .interest-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .interest-card h4 {
+            font-size: 1.2rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 0px 0;
+            text-align: center;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            color: var(--dark);
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        /* 新增样式部分 */
+        /* 添加新的布局样式 */
+        .main-container {
+            display: flex;
+            gap: 50px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .sidebar {
+            flex: 0 0 300px;
+            position: sticky;
+            top: 100px;
+            align-self: flex-start;
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .main-content {
+            flex: 1;
+        }
+
+        .profile-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .profile-img-container {
+            width: 180px;  /* 从240px减小到180px */
+            height: 180px; /* 从240px减小到180px */
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid var(--light);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-info {
+            text-align: left;
+        }
+
+        .contact-info .contact-item {
+            margin-bottom: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .contact-info .contact-item i {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .contact-info .contact-item p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .contact-info .contact-item a {
+            color: var(--dark);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .contact-info .contact-item a:hover {
+            color: var(--primary);
+        }
+
+        /* 媒体查询适配移动端 */
+        @media (max-width: 992px) {
+            .main-container {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                position: relative;
+                top: 0;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">Y.Y.</a>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 个人信息侧边栏和主要内容区域 -->
+    <div class="main-container">
+        <!-- 左侧边栏 -->
+        <aside class="sidebar">
+            <div class="profile-section">
+                <div class="profile-img-container">
+                    <img src="images/picture.jpg" alt="Profile" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <h2>Yutong Ye</h2>
+                <p>Computer Science Student</p>
+            </div>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <p>Phone</p>
+                    <a href="tel:+13802420817">380-242-0817</a>
+                </div>
+                
+                <div class="contact-item">
+                    <p>Email</p>
+                    <a href="mailto:yeyutong2021@hotmail.com">yeyutong2021@hotmail.com</a>
+                </div>
+                
+            </div>
+        </aside>
+
+        <!-- 右侧主要内容 -->
+        <main class="main-content">
+            <!-- Education Section -->
+            <section id="education">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>Education</h2>
+                        <p>My academic background and relevant coursework</p>
+                    </div>
+                    
+                    <div class="education-item">
+                        <h3>The Ohio State University, College of Engineering</h3>
+                        <span class="date">Expected Graduation: May 2025</span>
+                        <p><strong>Bachelor of Science in Computer Science and Engineering</strong></p>
+                        <p><strong>Mathematics Minor</strong></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Experience Section -->
+            <section id="experience">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>Work Experience</h2>
+                        <p>My professional journey and internships</p>
+                    </div>
+                    
+                    <div class="projects-grid">
+                        <div class="project-card">
+                            <div class="project-content">
+                                <h3>Grad2Go Inc.</h3>
+                                <span class="role">Full-Stack Software Engineering Intern | Jan 2025 – May 2025</span>
+                                <ul>
+                                    <li>Designed, developed, and deployed a full-stack e-commerce platform using Next.js, TypeScript, and PostgreSQL</li>
+                                    <li>Built highly responsive frontend for shop interface, shopping cart, and administrative dashboards</li>
+                                    <li>Developed and optimized PostgreSQL database schema using Supabase</li>
+                                    <li>Constructed comprehensive admin system with inventory management and real-time order tracking</li>
+                                    <li>Developed RESTful APIs using Supabase for seamless frontend-backend communication</li>
+                                    <li>Deployed production application on Vercel with performance optimization</li>
+                                    <li>Key achievement: Delivered MVP supporting user transactions and admin workflows</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="project-card">
+                            <div class="project-content">
+                                <h3>Beijing CTJ Information Technology Co., Ltd.</h3>
+                                <span class="role">Framework Architect Intern | May 2023 – July 2023</span>
+                                <ul>
+                                    <li>Delivered a financial-regulation platform end-to-end through hands-on framework architecture</li>
+                                    <li>Performed coding and automated testing</li>
+                                    <li>Launched project 3 weeks ahead of schedule with 90% pass rate on regulator acceptance tests</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects Section -->
+            <section id="projects" style="background-color: #f8fafc;">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>Projects</h2>
+                        <p>Explore my technical projects and implementations</p>
+                    </div
+                    >
+                    <div class="projects-grid">
+                        <div class="project-card">
+                            <div class="project-content">
+                                <h3>Online Shopping Platform</h3>
+                                <span class="role">Full-Stack Developer</span>
+                                <ul>
+                                    <li>Achieved a production-ready online store through Ruby on Rails backend and Vue/JavaScript/CSS/HTML/React frontend</li>
+                                    <li>Delivered a clean Git workflow with feature branches and pull-request code reviews on GitHub</li>
+                                    <li>Reduced merge conflicts by 35% and halved average PR turnaround time</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="project-card">
+                            <div class="project-content">
+                                <h3>Pathfinding Algorithm Implementation</h3>
+                                <span class="role">Developer</span>
+                                <ul>
+                                    <li>Implemented core pathfinding algorithms (DFS, BFS, UCS, A*) for autonomous maze navigation in Pacman AI project</li>
+                                    <li>Developed graph search versions with state tracking to prevent infinite loops</li>
+                                    <li>Utilized optimal data structures (stacks, queues, priority heaps) for efficient frontier management</li>
+                                    <li>Enabled Pacman agents to automatically find valid paths in complex mazes</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="project-card">
+                            <div class="project-content">
+                                <h3>Probabilistic Inference Implementation</h3>
+                                <span class="role">Developer</span>
+                                <ul>
+                                    <li>Used Python, Recursive Algorithms, CPT Optimization, Graph Theory and Probability Normalization</li>
+                                    <li>Designed and implemented a comprehensive probabilistic inference system for Bayesian Networks</li>
+                                    <li>Enabled exact and approximate inference across diverse scenarios</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="project-card">
+                            <div class="project-content">
+                                <h3>PCA and Laplacian Eigenmaps</h3>
+                                <span class="role">Developer</span>
+                                <ul>
+                                    <li>Implemented PCA and Laplacian Eigenmaps for dimensionality reduction with comprehensive feature normalization techniques</li>
+                                    <li>Implemented PCA with manual covariance calculation and eigen decomposition</li>
+                                    <li>Built k-NN graphs for Laplacian Eigenmaps manifold learning</li>
+                                    <li>Engineered normalization pipelines (L2, Z-score, whitening)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="project-card">
+                            <div class="project-content">
+                                <h3>Regression Implementation</h3>
+                                <span class="role">Developer</span>
+                                <ul>
+                                    <li>Engineered regression systems for linear, polynomial and nonlinear modeling</li>
+                                    <li>Implemented closed-form linear/polynomial regression with normal equations</li>
+                                    <li>Developed Gauss-Newton and Gradient Descent for exponential models</li>
+                                    <li>Created Jacobian matrix derivation and vectorized implementation</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Experience Section -->
+            <section id="experience">
+                <div class="container">                    
+                    <div class="section-title">
+                        <h2>Leadership & Involvement</h2>
+                    </div>
+                    
+                    <div class="projects-grid">
+                        <div class="project-card">
+                            <div class="project-content">
+                                <h3>Compact Baking Measurement Tool</h3>
+                                <span class="role">Leader & Product Design Engineer</span>
+                                <ul>
+                                    <li>Led full-cycle development of compact baking tool for bakers with limited kitchen space</li>
+                                    <li>Designed novel rotating lock mechanism using OnShape 3D modeling and food-safe materials</li>
+                                    <li>Conducted 6 QA tests (FEA, drop, and corrosion), achieving 100% user operation success rate</li>
+                                    <li>Achieved scalable production cost of $15; developed patent-pending mechanism</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="project-card">
+                            <div class="project-content">
+                                <h3>Ingress Chinese Student Investment</h3>
+                                <span class="role">Director of Event Planning Department</span>
+                                <ul>
+                                    <li>Directed 60-member Event Planning Department</li>
+                                    <li>Coordinated and executed 5 major club events</li>
+                                    <li>Initiated and organized academic achievement showcase and stock market learning workshop</li>
+                                    <li>Strengthened partnerships with other clubs</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Skills Section -->
+            <section id="skills" style="background-color: #f8fafc;">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>Skills & Expertise</h2>
+                        <p>My technical proficiencies and abilities</p>
+                    </div
+                    >
+                    <div class="skills-container">
+                        <div class="skill-category">
+                            <h3>Programming</h3>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>Java</span>
+                                    <span>Advanced</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 95%;"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>JavaScript</span>
+                                    <span>Advanced</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 90%;"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>C</span>
+                                    <span>Proficient</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 85%;"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>Ruby</span>
+                                    <span>Proficient</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 80%;"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>HTML/CSS</span>
+                                    <span>Advanced</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 90%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-category">
+                            <h3>Data Structures & Algorithms</h3>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>Arrays/Linked Lists</span>
+                                    <span>Advanced</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 95%;"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>Stacks/Queues/Maps</span>
+                                    <span>Advanced</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 90%;"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>Binary Trees</span>
+                                    <span>Advanced</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 90%;"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>DFS/BFS</span>
+                                    <span>Advanced</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 95%;"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>Greedy Algorithms</span>
+                                    <span>Advanced</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 90%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-category">
+                            <h3>Tools & Frameworks</h3>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>Ruby on Rails</span>
+                                    <span>Advanced</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 90%;"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>Next.js</span>
+                                    <span>Proficient</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 85%;"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>Vue.js</span>
+                                    <span>Proficient</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 85%;"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>Git/GitHub</span>
+                                    <span>Advanced</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 95%;"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>JUnit</span>
+                                    <span>Proficient</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 80%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Interests Section -->
+            <section>
+                <div class="container">
+                    <div class="section-title">
+                        <h2>Interests</h2>
+                        <p>Beyond technology and academics</p>
+                    </div>
+                    
+                    <div class="interests-grid">
+                        <div class="interest-card">
+                            <i class="fas fa-music"></i>
+                            <h4>Jazz & Choreography</h4>
+                        </div>
+                        <div class="interest-card">
+                            <i class="fas fa-cut"></i>
+                            <h4>Origami</h4>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer>
+                <div class="container">
+                    <p>&copy; 2025 Yutong Ye. All rights reserved.</p>
+                </div>
+            </footer>
+
+            <script>
+                // Smooth scrolling for anchor links
+                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                    anchor.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        document.querySelector(this.getAttribute('href')).scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    });
+                });
+
+                // Header shadow on scroll
+                window.addEventListener('scroll', function() {
+                    const header = document.querySelector('header');
+                    if (window.scrollY > 100) {
+                        header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+                    } else {
+                        header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+                    }
+                });
+            </script>
+        </body>
+        </html>
