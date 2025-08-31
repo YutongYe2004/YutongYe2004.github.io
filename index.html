@@ -10,7 +10,6 @@
         :root {
             --primary: #2563eb;
             --primary-dark: #1d4ed8;
-            --secondary: #4f46e5;
             --dark: #1e293b;
             --light: #f8fafc;
             --gray: #64748b;
@@ -133,14 +132,6 @@
             z-index: 2;
         }
         
-        .hero-image .profile-img {
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid white;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
         
         .hero h1 {
             font-size: 3.5rem;
@@ -177,17 +168,6 @@
             color: var(--primary);
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
-        }
-        
-        .btn-outline {
-            background: transparent;
-            color: var(--primary);
-            margin-left: 15px;
-        }
-        
-        .btn-outline:hover {
-            background: var(--primary);
-            color: white;
         }
         
         /* Section Styling */
@@ -267,18 +247,22 @@
         
         /* Projects Section */
         .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
         }
         
         .project-card {
             background: white;
             border-radius: 10px;
-            overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             transition: var(--transition);
-            margin-bottom: 20px; /* 添加此行 */
+            margin-bottom: 0;
+            display: flex;
+            align-items: center;
+            padding: 30px;
+            border-left: 4px solid var(--primary);
+            min-height: 120px;
         }
         
         .project-card:hover {
@@ -287,43 +271,35 @@
         }
         
         .project-content {
-            padding: 25px;
+            flex: 1;
+            padding: 0 0 0 20px;
         }
         
         .project-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 15px;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
             color: var(--primary);
         }
         
         .project-card .role {
-            display: inline-block;
-            background: var(--light-gray);
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            margin-bottom: 15px;
-            color: var(--gray);
+            display: block;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 10px;
         }
         
         .project-card ul {
-            margin-top: 15px;
+            margin-top: 10px;
             margin-left: 20px;
         }
         
         .project-card ul li {
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             position: relative;
-            padding-left: 20px;
+            padding-left: 0;
+            list-style-type: disc;
         }
         
-        .project-card ul li:before {
-            content: '•';
-            position: absolute;
-            left: 0;
-            color: var(--primary);
-            font-weight: bold;
-        }
         
         /* Experience Section */
         .timeline {
@@ -409,9 +385,10 @@
         
         /* Skills Section */
         .skills-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            display: flex;
+            flex-direction: row;
             gap: 30px;
+            justify-content: center;
         }
         
         .skill-category {
@@ -419,11 +396,14 @@
             border-radius: 10px;
             padding: 30px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            margin-bottom: 20px; /* 添加此行 */
+            margin-bottom: 0;
+            min-width: 280px;
+            max-width: 350px;
+            flex: 1 1 0;
         }
         
         .skill-category h3 {
-            font-size: 1.4rem;
+            font-size: 1rem;
             margin-bottom: 20px;
             color: var(--primary);
             text-align: center;
@@ -699,7 +679,7 @@
                         <div class="project-card">
                             <div class="project-content">
                                 <h3>Grad2Go Inc.</h3>
-                                <span class="role">Full-Stack Software Engineering Intern | Jan 2025 – May 2025</span>
+                                <span class="role">Full-Stack Web Engineering Intern | May 2025 – Augest 2025</span>
                                 <ul>
                                     <li>Designed, developed, and deployed a full-stack e-commerce platform using Next.js, TypeScript, and PostgreSQL</li>
                                     <li>Built highly responsive frontend for shop interface, shopping cart, and administrative dashboards</li>
@@ -736,17 +716,6 @@
                     </div
                     >
                     <div class="projects-grid">
-                        <div class="project-card">
-                            <div class="project-content">
-                                <h3>Online Shopping Platform</h3>
-                                <span class="role">Full-Stack Developer</span>
-                                <ul>
-                                    <li>Achieved a production-ready online store through Ruby on Rails backend and Vue/JavaScript/CSS/HTML/React frontend</li>
-                                    <li>Delivered a clean Git workflow with feature branches and pull-request code reviews on GitHub</li>
-                                    <li>Reduced merge conflicts by 35% and halved average PR turnaround time</li>
-                                </ul>
-                            </div>
-                        </div>
                         
                         <div class="project-card">
                             <div class="project-content">
@@ -798,6 +767,19 @@
                                 </ul>
                             </div>
                         </div>
+
+                        <div class="project-card">
+                            <div class="project-content">
+                                <h3>Online Shopping Platform</h3>
+                                <span class="role">Full-Stack Developer</span>
+                                <ul>
+                                    <li>Achieved a production-ready online store through Ruby on Rails backend and Vue/JavaScript/CSS/HTML/React frontend</li>
+                                    <li>Delivered a clean Git workflow with feature branches and pull-request code reviews on GitHub</li>
+                                    <li>Reduced merge conflicts by 35% and halved average PR turnaround time</li>
+                               </ul>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </section>
@@ -850,149 +832,35 @@
                     <div class="skills-container">
                         <div class="skill-category">
                             <h3>Programming</h3>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span>Java</span>
-                                    <span>Advanced</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 95%;"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span>JavaScript</span>
-                                    <span>Advanced</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 90%;"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span>C</span>
-                                    <span>Proficient</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 85%;"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span>Ruby</span>
-                                    <span>Proficient</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 80%;"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span>HTML/CSS</span>
-                                    <span>Advanced</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 90%;"></div>
-                                </div>
-                            </div>
+                            <ul>
+                                <li>Java</li>
+                                <li>JavaScript</li>
+                                <li>C</li>
+                                <li>Ruby</li>
+                                <li>HTML/CSS</li>
+                            </ul>
                         </div>
                         
                         <div class="skill-category">
                             <h3>Data Structures & Algorithms</h3>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span>Arrays/Linked Lists</span>
-                                    <span>Advanced</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 95%;"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span>Stacks/Queues/Maps</span>
-                                    <span>Advanced</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 90%;"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span>Binary Trees</span>
-                                    <span>Advanced</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 90%;"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span>DFS/BFS</span>
-                                    <span>Advanced</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 95%;"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span>Greedy Algorithms</span>
-                                    <span>Advanced</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 90%;"></div>
-                                </div>
-                            </div>
+                            <ul>
+                                <li>Arrays/Linked Lists</li>
+                                <li>Stacks/Queues/Maps</li>
+                                <li>Binary Trees</li>
+                                <li>DFS/BFS</li>
+                                <li>Greedy Algorithms</li>
+                            </ul>
                         </div>
                         
                         <div class="skill-category">
                             <h3>Tools & Frameworks</h3>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span>Ruby on Rails</span>
-                                    <span>Advanced</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 90%;"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span>Next.js</span>
-                                    <span>Proficient</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 85%;"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span>Vue.js</span>
-                                    <span>Proficient</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 85%;"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span>Git/GitHub</span>
-                                    <span>Advanced</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 95%;"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span>JUnit</span>
-                                    <span>Proficient</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 80%;"></div>
-                                </div>
-                            </div>
+                            <ul>
+                                <li>Ruby on Rails</li>
+                                <li>Next.js</li>
+                                <li>Vue.js</li>
+                                <li>Git/GitHub</li>
+                                <li>JUnit</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
